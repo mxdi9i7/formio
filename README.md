@@ -7,24 +7,51 @@
 ## Install
 
 ```bash
+yarn add formio
+```
+
+```bash
 npm install --save formio
 ```
 
-## Usage
+## Basic Usage
 
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'formio'
+import Formio from 'formio'
+
+const inputs = [
+ {
+   key: 'email', 
+   type: 'email',
+   label: 'Email:',
+   placeholder: 'Enter your email here'
+ },
+ {
+   key: 'password',
+   type: 'password',
+   label: 'Password',
+   placeholder: 'Enter your password here'
+ }
+]
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <Formio 
+        inputs={inputs}
+        change={this.handleFormChange}
+        submit={this.handleFormSubmit}
+        theme={'alpha'}
+      />
     )
   }
 }
 ```
+
+## Props
+1. `inputs` (required): Accepts an array of input obejcts 
 
 ## License
 

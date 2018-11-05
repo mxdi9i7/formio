@@ -19,16 +19,20 @@ const inputs = [
 
 export default class App extends Component {
   handleInputChange = (value) => {
-    this.setState(value);
+    this.setState(value)
   };
+  handleSubmit = (value) => {
+    console.log(value)
+  }
   render () {
     return (
       <div>
         <Formio
           inputs={inputs}
           change={this.handleInputChange}
+          submit={this.handleSubmit}
+          theme={'alpha'}
         />
-        <button onClick={() => window.alert(JSON.stringify(this.state))}>Submit</button>
       </div>
     )
   }

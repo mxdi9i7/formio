@@ -10,6 +10,8 @@ export default class Formio extends Component {
   };
   static propTypes = {
     inputs: PropTypes.array,
+    theme: PropTypes.string,
+    submit: PropTypes.func,
     change: PropTypes.func
   }
   componentDidMount = () => {
@@ -32,21 +34,39 @@ export default class Formio extends Component {
       this.props.change(this.state)
     })
   };
+  handleFormSubmit = () => {
+    this.props.submit(this.state)
+  };
   renderFormInputs = () => {
+    const containerClassNames = [
+      `${this.props.theme}-theme`,
+      'formio-container'
+    ]
+    const inputClassNames = [
+      'formio'
+    ]
     return (
-      this.props.inputs ? this.props.inputs.map((item, i) => {
-        return (
-          <div key={i}>
-            <label htmlFor={item.key}>{item.label}</label>
-            <input
-              type={item.type}
-              value={this.state[item.key]}
-              placeholder={item.placeholder || ''}
-              onChange={(e) => this.handleFormChange(item.key, e.target.value)}
-            />
-          </div>
-        )
-      }) : ''
+      <div className={containerClassNames.join(' ')}>
+        {
+          this.props.inputs ? this.props.inputs.map((item, i) => {
+            return (
+              <div
+                key={i}
+                className={inputClassNames.join(' ')}
+              >
+                <label htmlFor={item.key}>{item.label}</label>
+                <input
+                  type={item.type}
+                  value={this.state[item.key]}
+                  placeholder={item.placeholder || ''}
+                  onChange={(e) => this.handleFormChange(item.key, e.target.value)}
+                />
+              </div>
+            )
+          }) : ''
+        }
+        <button onClick={this.handleFormSubmit}>Submit</button>
+      </div>
     )
   };
   render() {

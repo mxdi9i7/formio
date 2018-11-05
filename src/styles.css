@@ -1,3 +1,11 @@
 /* add css styles here (optional) */
 
+.formio-container {
+  padding: 15px;
+  background-color: black;
+}
+
+.formio {
+  background-color: black;
+}
 
