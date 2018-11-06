@@ -28,4 +28,5 @@ describe('Formio component should', () => {
     const wrapper = shallow(<Formio {...mockProps} />)
     expect(wrapper).toBeTruthy()
   })
+  test('')
 })

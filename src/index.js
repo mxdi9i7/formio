@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './styles.css'
+import styles from './styles.scss'
 
 export default class Formio extends Component {
   constructor(props) {
@@ -46,7 +46,9 @@ export default class Formio extends Component {
       'formio'
     ]
     return (
-      <div className={containerClassNames.join(' ')}>
+      <div
+        className={containerClassNames.join(' ')}
+      >
         {
           this.props.inputs ? this.props.inputs.map((item, i) => {
             return (
