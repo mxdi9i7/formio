@@ -51,7 +51,11 @@ class Example extends Component {
 ```
 
 ## Props
-1. `inputs` (required): Accepts an array of input obejcts 
+Props with a asterisk (*) is required
+
+| Props | Default Value/Type | Description |
+| --- | --- |
+| `input` | array | a list of input objects to generate |
 
 ## License
 

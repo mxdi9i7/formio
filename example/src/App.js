@@ -12,11 +12,13 @@ const inputs = [
   {
     key: 'password',
     type: 'password',
-    label: 'Password',
+    label: 'Password:',
     placeholder: 'Enter your password here'
   }
 ]
-
+const buttonStyle = {
+  fontSize: '16px'
+}
 export default class App extends Component {
   handleInputChange = (value) => {
     this.setState(value)
@@ -31,7 +33,8 @@ export default class App extends Component {
           inputs={inputs}
           change={this.handleInputChange}
           submit={this.handleSubmit}
-          theme={'alpha'}
+          theme={'bootstrap'}
+          buttonStyle={buttonStyle}
         />
       </div>
     )

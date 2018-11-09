@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import styles from './styles.scss'
 
 export default class Formio extends Component {
+  static defaultProps = {
+    theme: 'bootstrap'
+  }
   constructor(props) {
     super(props)
     this.state = {}
@@ -12,7 +15,9 @@ export default class Formio extends Component {
     inputs: PropTypes.array,
     theme: PropTypes.string,
     submit: PropTypes.func,
-    change: PropTypes.func
+    change: PropTypes.func,
+    autocomplete: PropTypes.bool,
+    buttonStyle: PropTypes.string
   }
   componentDidMount = () => {
   };
@@ -62,12 +67,18 @@ export default class Formio extends Component {
                   value={this.state[item.key]}
                   placeholder={item.placeholder || ''}
                   onChange={(e) => this.handleFormChange(item.key, e.target.value)}
+                  autoComplete={this.props.autocomplete}
                 />
               </div>
             )
           }) : ''
         }
-        <button onClick={this.handleFormSubmit}>Submit</button>
+        <button
+          style={this.props.buttonStyle}
+          onClick={this.handleFormSubmit}
+        >
+            Submit
+        </button>
       </div>
     )
   };
