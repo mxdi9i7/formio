@@ -28,14 +28,35 @@ export default class App extends Component {
   }
   render () {
     return (
-      <div>
-        <Formio
-          inputs={inputs}
-          change={this.handleInputChange}
-          submit={this.handleSubmit}
-          theme={'bootstrap'}
-          buttonStyle={buttonStyle}
-        />
+      <div className='form-containers'>
+        <div className='form'>
+          <h1>Bootstrap Theme</h1>
+          <Formio
+            inputs={inputs}
+            change={this.handleInputChange}
+            submit={this.handleSubmit}
+            theme='bootstrap'
+            buttonStyle={buttonStyle}
+          />
+        </div>
+        <div className='form'>
+          <h1>Material Theme</h1>
+          <Formio
+            inputs={inputs}
+            change={this.handleInputChange}
+            submit={this.handleSubmit}
+            theme='material'
+          />
+        </div>
+        <div className='form'>
+          <h1>Stripe Theme</h1>
+          <Formio
+            inputs={inputs}
+            change={this.handleInputChange}
+            submit={this.handleSubmit}
+            theme='stripe'
+          />
+        </div>
       </div>
     )
   }

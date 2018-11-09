@@ -21,6 +21,45 @@
   }
 }
 
+.formio {
+  margin: 15px 0;
+}
+
+.material-theme {
+  margin: 1rem 0;
+  padding: 0 .75rem;
+  .formio {
+    position: relative;
+  }
+  label {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    color: #9e9e9e;
+    font-size: 1rem;
+    cursor: text;
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+    &:focus {
+      border-bottom: 1px solid #007bff;
+      box-shadow: 0 1px 0 0 #26a69a;
+    }
+  }
+}
+
 .bootstrap-theme {
   label {
     display: inline-block;
@@ -37,10 +76,6 @@
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    -webkit-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -moz-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -ms-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    -o-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
     &:focus {
@@ -66,15 +101,9 @@
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
-    -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    -moz-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    -ms-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    -o-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     overflow: hidden;
-  }
-
-  .formio {
-    margin: 15px 0;
+    margin-top: 10px;
   }
 }
