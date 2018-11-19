@@ -1,7 +1,7 @@
-import Enzyme from 'enzyme'
+/* eslint-disable no-unused-vars */
 import Adaptor from 'enzyme-adapter-react-16'
 import React from 'react'
-import { mount, shallow, render } from 'enzyme'
+import Enzyme, { mount, shallow, render } from 'enzyme'
 import Formio from './'
 
 Enzyme.configure({ adapter: new Adaptor() })
@@ -19,14 +19,35 @@ const mockInputs = [
     placeholder: 'Enter your password here'
   }
 ]
+const mockChangeMethod = jest.fn()
+let props
+beforeEach(() => {
+  props = {
+    inputs: mockInputs,
+    change: () => {}
+  }
+})
 
 describe('Formio component should', () => {
   test('render', () => {
-    const mockProps = {
-      inputs: mockInputs
-    }
-    const wrapper = shallow(<Formio {...mockProps} />)
+    const wrapper = shallow(<Formio {...props} />)
     expect(wrapper).toBeTruthy()
   })
-  test('')
+  test('render the same number of inputs as the length of inputs array prop', () => {
+    const wrapper = shallow(<Formio {...props} />)
+    expect(wrapper.find('input')).toHaveLength(props.inputs.length)
+  })
+  test('trigger handleFormChange and update state value based on input', () => {
+    const wrapper = shallow(<Formio {...props} />)
+    const mockKey = 'foo'
+    const mockValue = 'bar'
+    wrapper.instance().handleFormChange(mockKey, mockValue)
+    expect(wrapper.state(mockKey)).toEqual(mockValue)
+  })
+  test('trigger handleFormChange will call on props change method', () => {
+    props.change = mockChangeMethod
+    const wrapper = shallow(<Formio {...props} />)
+    wrapper.instance().handleFormChange()
+    expect(mockChangeMethod).toHaveBeenCalled()
+  })
 })
