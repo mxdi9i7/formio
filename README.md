@@ -1,4 +1,4 @@
-# formio
+# formio-inputs
 
 > 3kb compressed form component that takes care of everything for you.
 
@@ -9,11 +9,11 @@
 ## Install
 
 ```bash
-yarn add formio
+yarn add formio-inputs
 ```
 
 ```bash
-npm install --save formio
+npm install --save formio-inputs
 ```
 
 ## Basic Usage
@@ -21,7 +21,7 @@ npm install --save formio
 ```jsx
 import React, { Component } from 'react'
 
-import Formio from 'formio'
+import Formio from 'formio-inputs'
 
 const inputs = [
  {

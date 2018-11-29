@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Formio from 'formio'
+import Formio from 'formio-inputs'
 
 const inputs = [
   {
